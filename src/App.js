@@ -1,14 +1,10 @@
 import React from 'react';
 import TodoList from './components/TodoList';
+import TodoForm from './components/TodoForm';
+import ClearForm from './components/ClearForm';
 import './styles.css';
 
-const todoItems = [
-  {
-    id: 1,
-    name: 'Clean Car', 
-    completed: false
-  }
-]
+const todoItems = [];
 
 class App extends React.Component {
   constructor() {
@@ -20,7 +16,7 @@ class App extends React.Component {
   }
 
   toggleCompleted = clickedTaskId => {
-    this.state({
+    this.setState({
       todoItems: this.state.todoItems.map ( item => {
         if (item.id === clickedTaskId) {
           return {
@@ -40,11 +36,15 @@ class App extends React.Component {
       name: taskName,
       completed: false
     };
-
     this.setState({
       todoItems: [...this.state.todoItems, newTask]
     })
+  }
 
+  clearTasks = () => {
+    this.setState({
+      todoItems: []
+    })
   }
 
   render() {
@@ -52,11 +52,13 @@ class App extends React.Component {
       <div className="App">
         <div className="header">
           <h1>To Do List</h1>
+          <TodoForm addTask = { this.addTask } />
         </div>
         <TodoList
           todoItems = { this.state.todoItems }
           toggleCompleted = { this.toggleCompleted }
         />
+        <ClearForm clearTasks = { this.clearTasks } />
       </div>
     );
   }
