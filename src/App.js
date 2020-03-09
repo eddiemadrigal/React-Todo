@@ -1,16 +1,59 @@
 import React from 'react';
+import './styles.css';
+
+const todoItems = [
+  {
+    id: 1,
+    name: 'Clean Car', 
+    completed: false
+  }
+]
 
 class App extends React.Component {
-  // you will need a place to store your state in this component.
-  // design `App` to be the parent component of your application.
-  // this component is going to take care of state, and any change handlers you need to work with your state
+  constructor() {
+    super();
+    this.state = {
+      todoItems,
+      name: ''
+    };
+  }
+
+  toggleComplete = clickedTaskId => {
+    this.state({
+      todoItems: this.state.todoItems.map ( item => {
+        if (item.id === clickedTaskId) {
+          return {
+            ...item,
+            completed: !item.completed
+          };
+        } else {
+          return item;
+        }
+      })
+    })
+  }
+
+  addTask = taskName => {
+    const newTask = {
+      id: new Date(),
+      name: taskName,
+      completed: false
+    };
+
+    this.setState({
+      todoItems: [...this.state.todoItems, newTask]
+    })
+
+  }
+
   render() {
     return (
-      <div>
-        <h2>Welcome to your Todo App!</h2>
+      <div className="header">
+        <h1>To Do List</h1>
       </div>
-    );
+    )
   }
+
 }
 
 export default App;
