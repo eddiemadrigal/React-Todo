@@ -1,4 +1,5 @@
 import React from 'react';
+import TodoList from './components/TodoList';
 import './styles.css';
 
 const todoItems = [
@@ -18,7 +19,7 @@ class App extends React.Component {
     };
   }
 
-  toggleComplete = clickedTaskId => {
+  toggleCompleted = clickedTaskId => {
     this.state({
       todoItems: this.state.todoItems.map ( item => {
         if (item.id === clickedTaskId) {
@@ -48,10 +49,16 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="header">
-        <h1>To Do List</h1>
+      <div className="App">
+        <div className="header">
+          <h1>To Do List</h1>
+        </div>
+        <TodoList
+          todoItems = { this.state.todoItems }
+          toggleCompleted = { this.toggleCompleted }
+        />
       </div>
-    )
+    );
   }
 
 }
