@@ -1,5 +1,6 @@
 import React from 'react';
 import Todo from './Todo';
+import { Button } from 'reactstrap';
 
 const TodoList = props => {
     return (
@@ -11,10 +12,10 @@ const TodoList = props => {
                     toggleCompleted = { props.toggleCompleted }
                 />
             ))}
-            <button 
+            <Button 
                 className="clear-btn"
                 onClick={ props.clearCompleted } 
-            >Clear Completed Tasks</button>
+            >Clear Completed Tasks</Button>
         </div>
     )
 }

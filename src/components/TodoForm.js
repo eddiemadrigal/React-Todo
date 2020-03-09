@@ -1,4 +1,6 @@
 import React from 'react';
+import { Row, Col, Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import './Todo.css';
 
 class TodoForm extends React.Component {
     constructor() {
@@ -24,15 +26,23 @@ class TodoForm extends React.Component {
 
     render() {
         return(
-            <form onSubmit = { this.handleSubmit }>
-                <input 
-                    type="text" 
-                    name="task" 
-                    value={ this.state.task } 
-                    onChange = { this.handleChanges }
-                />
-                <button>Add a To-Do</button>
-            </form>
+            <Form onSubmit = { this.handleSubmit }>
+                <FormGroup>
+                    <Row>
+                        <Col md={11}>
+                            <Input 
+                                type="text" 
+                                name="task" 
+                                value={ this.state.task } 
+                                onChange = { this.handleChanges }
+                            />
+                        </Col>
+                        <Col md={1}>
+                            <Button color="success">Add</Button>
+                        </Col>
+                    </Row>
+                </FormGroup>
+            </Form>
         )
     }
 }

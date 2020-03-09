@@ -1,6 +1,7 @@
 import React from 'react';
 import TodoList from './components/TodoList';
 import TodoForm from './components/TodoForm';
+import { Container, Row, Col } from 'reactstrap';
 import './styles.css';
 
 const todoItems = [];
@@ -45,25 +46,25 @@ class App extends React.Component {
     this.setState({
       todoItems: this.state.todoItems.filter( todo => todo.completed === false)
     })
-
-    // let todos = this.state.todoItems.filter( todo => !todo.completed);
-    // console.log("My todos: ", todos);
-    // this.setState({ todos });
   }
 
   render() {
     return (
-      <div className="App">
-        <div className="header">
-          <h1>To Do List</h1>
-          <TodoForm addTask = { this.addTask } />
-        </div>
-        <TodoList
-          todoItems = { this.state.todoItems }
-          toggleCompleted = { this.toggleCompleted }
-          clearCompleted = { this.clearCompleted }
-        />
-      </div>
+      <Container>
+        <Row>
+          <Col sm="12" md={{ size: 6, offset: 3 }}>
+          <div>
+            <h1>To Do List</h1>
+            <TodoForm addTask = { this.addTask } />
+          </div>
+          <TodoList
+            todoItems = { this.state.todoItems }
+            toggleCompleted = { this.toggleCompleted }
+            clearCompleted = { this.clearCompleted }
+          />
+          </Col>
+        </Row>
+      </Container>
     );
   }
 

@@ -5,3 +5,12 @@
 .completed {
     text-decoration: line-through;
 }
+
+form {
+    text-align: center;
+}
+
+.todo-list {
+    margin-top: 20px;
+    text-align: center;
+}
