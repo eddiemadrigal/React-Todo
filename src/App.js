@@ -1,7 +1,6 @@
 import React from 'react';
 import TodoList from './components/TodoList';
 import TodoForm from './components/TodoForm';
-import ClearForm from './components/ClearForm';
 import './styles.css';
 
 const todoItems = [];
@@ -58,7 +57,6 @@ class App extends React.Component {
           todoItems = { this.state.todoItems }
           toggleCompleted = { this.toggleCompleted }
         />
-        <ClearForm clearTasks = { this.clearTasks } />
       </div>
     );
   }
