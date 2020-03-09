@@ -1,7 +1,7 @@
 .item {
-    background: orange;
+    text-decoration: none;
 }
 
 .completed {
-    background: green;
+    text-decoration: line-through;
 }
