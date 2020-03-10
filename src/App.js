@@ -68,7 +68,7 @@ class App extends React.Component {
 
     componentDidMount(){
         // use the node ref to create the animation
-        this.myTween = TweenLite.to(this.myElement, 2, {opacity: 1, y:100});
+        this.myTween = TweenLite.to(this.myElement, 2, { y:100 });
     }
 
     render() {
