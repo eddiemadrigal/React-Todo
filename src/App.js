@@ -96,6 +96,16 @@ class App extends React.Component {
                             </Card>
                         </Col>
                     </Row>
+                    <Row>
+                    <Col
+                            sm="12"
+                            md={{
+                            size: 6,
+                            offset: 3
+                        }}>
+                            <p id='github-link'>Source Code: <a href='https://github.com/eddiemadrigal/React-Todo' target='_blank' rel='noopener noreferrer'>https://github.com/eddiemadrigal/React-Todo</a></p>
+                        </Col>
+                    </Row>
                 </Container>
             </div>
         );
